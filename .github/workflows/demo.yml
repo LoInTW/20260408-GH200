@@ -4,6 +4,8 @@ on:
     types: [opened]
 jobs:
   comment:
+    permissions: 
+      issues: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/github-script@0.8.0
@@ -16,8 +18,3 @@ jobs:
             repo: context.repo.repo,
             body: "🎉 You've created this issue comment Demo0408 using GitHub Script!!!"
             })
-            github.projects.createCard({
-            column_id: {{columnID}},
-            content_id: context.payload.issue.id,
-            content_type: "Issue"
-            });
